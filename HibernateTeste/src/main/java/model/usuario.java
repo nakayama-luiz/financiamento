@@ -39,7 +39,7 @@ public class usuario {
   //      return user;
   //  }
 
-//public void setUser(String user) {
+    //public void setUser(String user) {
    //     this.user = user;
     //}
 

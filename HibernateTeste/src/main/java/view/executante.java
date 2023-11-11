@@ -1,13 +1,17 @@
 package view;
 
+import model.Receita;
 import model.usuario;
 
 public class executante {
     public static void main(String args[]){
-        usuario instanciado = new usuario();
+        Receita receita = new Receita();
 
-        instanciado.setName("Arthur Biogenes");
+        receita.setDescricao("salario");
+        receita.setTipo("fixa");
+        receita.setValor(100);
 
-        control.userDAO.getInstace().inserirUsuario(instanciado);
+        control.receitaDAO.getInstace().inserirUsuario(receita);
+
     }
 }
