@@ -66,4 +66,6 @@ public class despesaDAO {
         entityManager.merge(despresa);
         entityManager.getTransaction().commit();
     }
+
+
 }

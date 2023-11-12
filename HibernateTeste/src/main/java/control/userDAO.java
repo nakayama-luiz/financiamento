@@ -55,12 +55,18 @@ public class userDAO {
     public usuario procurarEmpenhoPeloId(int id){
         return entityManager.find(usuario.class, id);
     }
+    
+    public usuario procurarNome(String nome){
+        return entityManager.find(usuario.class, nome);
+    }
 
     public void atualizarUsuario(usuario usuario){
         entityManager.getTransaction().begin();
         entityManager.merge(usuario);
         entityManager.getTransaction().commit();
     }
+
+
 
 
 }

@@ -6,6 +6,8 @@ import model.usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class receitaDAO {
 
@@ -60,6 +62,14 @@ public class receitaDAO {
         entityManager.getTransaction().commit();
     }
 
+    public List<Receita> todaReceita(){
+        entityManager.getTransaction().begin();
+        String menos = "from Receita ";
+        TypedQuery<Receita> query = entityManager.createQuery(menos, Receita.class);
+        List<Receita> exemplos = query.getResultList();
+        entityManager.getTransaction().commit();
 
+        return exemplos;
+    }
 
 }
