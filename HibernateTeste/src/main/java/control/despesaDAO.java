@@ -6,9 +6,11 @@ import model.usuario;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public class despesaDAO {
 
@@ -38,7 +40,7 @@ public class despesaDAO {
         return entityManager;
     }
 
-    public void inserirUsuario(Despesa despesa){
+    public void inserirDespesa(Despesa despesa){
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(despesa);
@@ -65,6 +67,16 @@ public class despesaDAO {
         entityManager.getTransaction().begin();
         entityManager.merge(despresa);
         entityManager.getTransaction().commit();
+    }
+    
+    public List<Despesa> todaDespesa(){
+        entityManager.getTransaction().begin();
+        String menos = "from Despesa ";
+        TypedQuery<Despesa> query = entityManager.createQuery(menos, Despesa.class);
+        List<Despesa> exemplos = query.getResultList();
+        entityManager.getTransaction().commit();
+
+        return exemplos;
     }
 
 
